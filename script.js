@@ -1,38 +1,44 @@
 function getComputerChoice() {
-    //make the computer randomly choose one of the 3 options
     let getComputerChoice = Math.floor(Math.random() * 3);
-    //console.log(getComputerChoice);
     let computerSelection = (getComputerChoice === 0) ? "rock" : 
         (getComputerChoice === 1) ? "paper" : 
         "scissors";
     //check to make sure all 3 choices are being selected sometimes
-    //alert("Computer chose: " + computerSelection);
+    // console.log("Computer chose: " + computerSelection);
+    return computerSelection;
 }
-//call the function to make sure it /chooses/prints correctly
-//getComputerChoice();
+
+let computerSelection = getComputerChoice(); 
+console.log("Computer chose: " +computerSelection);
 
 function getPlayerSelection() {
     let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-    console.log(playerSelection);
-    if ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")) {
-        alert("Looks like you had a typo. Please try again!");
-        getPlayerSelection();
-        // Documenting previous attempt which gave an error (didn't actually make the user keep going)
-        // playerSelection = prompt("It looks like you had a typo. Please try again: rock, paper, or scissors?");
-        // alert("You chose: " + playerSelection);
+// tried to make it ask the user again if there was a typo. it did, but it didn't save the new response
+    // into the playerSelection variable and I don't know why
+    // if ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")) {
+    //     alert("Looks like you had a typo. Please try again!");
+    //     getPlayerSelection();
+    // } else {
+        return playerSelection;
+    // }
+}
+let playerSelection = getPlayerSelection();
+console.log("Player chose: " + getPlayerSelection());
 
-        // return playerSelection;
+function playRound(playerSelection, computerSelection) {
+   
+    if (playerSelection === computerSelection) {
+        console.log("comp picked: " + computerSelection + "and u picked: " + playerSelection);
+        console.log("It's a tie!");
+    } else if ((playerSelection === "rock") && (computerSelection == "scissors")) {
+        console.log("You win! Rock beats scissors.");
+    } else if ((playerSelection === "paper") && (computerSelection == "rock")) {
+        console.log("You win! Paper beats rock.");
+    } else if ((playerSelection === "scissors") && (computerSelection == "paper")) {
+        console.log("You win! Scissors beats paper.");
     } else {
-        alert("You chose: " + playerSelection);
-        // return playerSelection;
-        
+        console.log("You lose!");
     }
-    console.log(playerSelection);
 }
 
-
-// function playGame(playerSelection, computerSelection) {
-//     let playerSelection = parseInt.prompt("Rock, paper, or scissors?");
-//     playerSelection = ()
-
-// }
+playRound();
