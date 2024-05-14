@@ -18,10 +18,12 @@ let computerSelection;
 let playerSelection;
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+    // playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
     console.log("Player chose: " + playerSelection);
     computerSelection = getComputerSelection(); 
     console.log("Computer chose: " + computerSelection);
+   
+   // all this has to be changed!
     if (playerSelection === computerSelection) {
         console.log("It's a tie!");
     } else if ((playerSelection === "rock") && (computerSelection == "scissors")) {
@@ -33,14 +35,42 @@ function playRound(playerSelection, computerSelection) {
     } else {
         console.log("You lose!");
     }
+
+    // removing console.logs ... reworking to changing textContents or nodes / appendages
 }
 
-function playGame() {
-    playRound(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
-    playRound(playerSelection, computerSelection);
-}
+// function playGame() {
+//     playRound(playerSelection, computerSelection);
+//     playRound(playerSelection, computerSelection);
+//     playRound(playerSelection, computerSelection);
+//     playRound(playerSelection, computerSelection);
+//     playRound(playerSelection, computerSelection);
+// }
 
-playGame();
+// playGame();
+
+// not sure about this ... 
+// const rockBtn = document.querySelector("rock")
+
+const choices = document.querySelector('#choices');
+
+choices.addEventListener("click", (event) => {
+    let choice = event.target;
+
+    switch(choice.id) {
+        case "rock": 
+            playerSelection = "rock";
+            break;
+        case "paper":
+            playerSelection = "paper";
+            break;
+        case "scissors":
+            playerSelection = "scissors";
+            break;
+    }
+    playRound(playerSelection, computerSelection);
+});
+
+
+
+// playRound(playerSelection, computerSelection)

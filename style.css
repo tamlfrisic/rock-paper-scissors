@@ -1,0 +1,18 @@
+body {
+    color: rgb(179, 250, 199);
+    font-family: Ubuntu, Garamond, monospace;
+    background-color: #000;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(179, 250, 199);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #000;
+    border: solid rgb(179, 250, 199) 2px;
+    padding: 10px 20px;
+    font-family: Ubuntu, Garamond, monospace;
+}
