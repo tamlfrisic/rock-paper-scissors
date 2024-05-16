@@ -2,7 +2,26 @@ body {
     color: rgb(179, 250, 199);
     font-family: Ubuntu, Garamond, monospace;
     background-color: #000;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+#score {
+    border: solid rgb(179, 250, 199) 2px;
+    background-color: gray;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
 
 button {
