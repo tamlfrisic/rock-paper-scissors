@@ -7,6 +7,7 @@ function getComputerSelection() {
 }
 
 let computerSelection; 
+let computerScore = 0;
 
 // // function getPlayerSelection() {
 //     // if ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")) {
@@ -16,6 +17,7 @@ let computerSelection;
 //         return playerSelection;
 
 let playerSelection;
+let playerScore = 0;
 
 const choices = document.querySelector('#choices');
 choices.addEventListener("click", (event) => {
@@ -41,44 +43,66 @@ choices.addEventListener("click", (event) => {
 
 function playRound(playerSelection, computerSelection) {
     // playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-    const body = document.querySelector("body");
-    const div = document.createElement("div");
-    div.style.border = "solid rgb(179, 250, 199) 2px";
-    div.style.marginTop = "5px";
+    const div = document.querySelector("#choices");
+    const results = document.createElement("div");
+    results.style.border = "solid rgb(179, 250, 199) 2px";
+    results.style.marginTop = "10px";
+    results.style.borderRadius = "6px"
     
-    body.appendChild(div);
+    div.appendChild(results);
     
     const playerChoice = document.createElement("p");
     playerChoice.textContent = "Player chose: " + playerSelection; 
-    div.appendChild(playerChoice);
+    results.appendChild(playerChoice);
     
     const compChoice = document.createElement("p");
     computerSelection = getComputerSelection(); 
     compChoice.textContent = "Computer chose: " + computerSelection;
-    div.appendChild(compChoice);
+    results.appendChild(compChoice);
 
     
-    const results = document.createElement("p");
+    const winner = document.createElement("p");
     // trying to remove the previous added "p" node's textcontent
     // if (choices !== "") {
     //     choices.removeChild(results);
     // }
     if (playerSelection === computerSelection) {
-        results.textContent = "It's a tie!";
-        choices.appendChild(results);
+        winner.textContent = "It's a tie!";
+        choices.appendChild(winner);
     } else if ((playerSelection === "rock") && (computerSelection == "scissors")) {
-        results.textContent = "You win! Rock beats scissors.";
-        choices.appendChild(results);
+        winner.textContent = "You win! Rock beats scissors.";
+        choices.appendChild(winner);
+        playerScore++;
     } else if ((playerSelection === "paper") && (computerSelection == "rock")) {
-        results.textContent = "You win! Paper beats rock.";
-        choices.appendChild(results);
+        winner.textContent = "You win! Paper beats rock.";
+        choices.appendChild(winner);
+        playerScore++;
     } else if ((playerSelection === "scissors") && (computerSelection == "paper")) {
-        results.textContent = "You win! Scissors beats paper.";
-        choices.appendChild(results);
+        winner.textContent = "You win! Scissors beats paper.";
+        choices.appendChild(winner);
+        playerScore++;
     } else {
-        results.textContent = "You lose!";
-        choices.appendChild(results);
+        winner.textContent = "You lose!";
+        choices.appendChild(winner);
+        computerScore++;
     }
+    winner.style.border = "solid rgb(179, 250, 199) 2px";
+    winner.style.color = "black";
+    winner.style.backgroundColor = "rgb(179, 250, 199)";
+    winner.style.borderRadius = "6px";
+    winner.style.fontSize = "18px";
+    winner.style.fontWeight = "700";
+    winner.style.padding = "10px 0px";
+
+    // move this to the end of this function once done
+   
+    const scoreBoard = document.querySelector("#score");
+    const score = document.createElement("p");
+    score.style.color = "black";
+    score.textContent = "Your score: " + playerScore + ". Computer score: " + computerScore;
+    scoreBoard.appendChild(score);
+
+
     
 
    // all this has to be changed!
