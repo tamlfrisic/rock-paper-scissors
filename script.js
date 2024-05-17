@@ -64,7 +64,6 @@ function playRound(playerSelection, computerSelection) {
     const its = document.createElement("p");
     its.style.color = "black";
     its.textContent = computerScore;
-    its.style.color = "black";
     its.style.backgroundColor = "lightgray";
     itsScore.appendChild(its);
 
